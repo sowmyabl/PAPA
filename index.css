@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-cinzel: "Cinzel", serif;
+  --font-outfit: "Outfit", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+  --color-space-black: #020205;
+  --color-space-dark: #050512;
+  --color-midnight: #090924;
+  --color-royal: #13134d;
+  --color-gold-glow: #ffe875;
+  --color-gold-deep: #cca300;
+  --color-glowing-yellow: #ffea00;
+}
+
+/* Custom styles and overrides */
+html, body {
+  background-color: var(--color-space-black);
+  color: #f3f4f6;
+  font-family: var(--font-outfit);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-space-black);
+}
+::-webkit-scrollbar-thumb {
+  background: #1d1d42;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a2a62;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(9, 9, 36, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 232, 117, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 232, 117, 0.3);
+  box-shadow: 0 12px 40px 0 rgba(255, 232, 117, 0.1);
+}
+
+/* Text glow effects */
+.text-glow-yellow {
+  text-shadow: 0 0 10px rgba(255, 234, 0, 0.5), 0 0 20px rgba(255, 234, 0, 0.3);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 10px rgba(30, 144, 255, 0.5), 0 0 20px rgba(30, 144, 255, 0.3);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 12px rgba(255, 232, 117, 0.6), 0 0 24px rgba(255, 232, 117, 0.3);
+}
+
+/* Background nebula gradients */
+.nebula-blue {
+  background: radial-gradient(circle, rgba(19, 19, 77, 0.4) 0%, rgba(2, 2, 5, 0) 70%);
+}
+
+.nebula-gold {
+  background: radial-gradient(circle, rgba(255, 232, 117, 0.08) 0%, rgba(2, 2, 5, 0) 70%);
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes slow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-slow-spin {
+  animation: slow-spin 60s linear infinite;
+}
+
+@keyframes slow-pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 4s ease-in-out infinite;
+}
+
+/* Custom cursor default hide */
+@media (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none !important;
+  }
+  .custom-cursor-active a, 
+  .custom-cursor-active button,
+  .custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}
+
+/* Button Shimmer Sweeper keyframes */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
